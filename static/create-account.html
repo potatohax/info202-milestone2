@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <title>Create Account Page</title>
+        <script src="js/external/vue.global.js"></script>
+        <script src="js/external/vuex.global.js"></script>
+        <script src="js/external/vuex-persistedstate.js"></script>
+        <script src="js/external/axios.js"></script>
+    </head>
+    <body>
+
+        <main>
+            <header>
+                <h1>Create A New Account</h1>
+            </header>
+            <navmenu></navmenu>
+
+            <!--
+            <%                        
+                String validation = (String) session.getAttribute("validation");
+                validation = validation != null ? validation : "";
+            %>
+            -->
+            <!--
+            <p class = "sign-in-text"><%= validation%> </p>
+            -->
+
+            <fieldset class = "sign-up-form flex-container flex-row">
+                <legend>Customer Details</legend>
+
+                <form @submit.prevent="createAccount()">
+
+                    <label>Username:</label><input type="text" v-model = "customer.username" required/>
+                    <label>First Name:</label><input type="text" v-model="customer.firstName" required/>
+                    <label>Last Name:</label><input type="text" v-model="customer.surname" required/>
+                    <label>Email:</label><input type="text" v-model ="customer.emailAddress" required/>
+                    <label>Address:</label><textarea v-model ="customer.shippingAddress" required></textarea>
+                    <label>Password:</label><input type = "password" v-model ="customer.password" required/>
+
+                    <button>Create Account</button>
+
+                </form>
+
+            </fieldset>
+        </main>
+        <footer>
+            <p>We sell the biggest range of watches!</p>
+        </footer>
+        <script type="module" src="js/create-account.js"></script>
+    </body>
+</html>

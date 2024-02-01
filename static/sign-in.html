@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <title>Create Account Page</title>
+        <script src="js/external/vue.global.js"></script>
+        <script src="js/external/vuex.global.js"></script>
+        <script src="js/external/vuex-persistedstate.js"></script>
+        <script src="js/external/axios.js"></script>
+    </head>
+    <body>
+        <!--
+        <p class = "sign-in-text">Please sign in to continue</p>
+        
+        <%            
+        String checkAccount = (String) session.getAttribute("checkAccount");
+        checkAccount = checkAccount != null ? checkAccount : "";
+        %>
+        -->
+
+        <!--<p class = "sign-in-text"><%= checkAccount%></p> -->
+        <main>
+            <header>
+                <h1>Sign In</h1>
+            </header>
+            <navmenu></navmenu>
+            <fieldset class = "sign-up-form flex-container flex-row">
+
+                <legend>Sign in Details</legend>
+                <form @submit.prevent="signIn()">
+
+                    <label>Username:</label><input type="text" v-model ="customer.username" required/>
+                    <label>Password:</label><input type = "password" v-model ="customer.password" required/>
+
+                    <button type = "submit">Sign in</button>
+
+                </form>
+
+
+            </fieldset>
+        </main>
+        <footer>
+            <p>If you don't have an account then you can <a href = "create-account.html">create one!</a></p> 
+        </footer>
+        <script type="module" src="js/sign-in.js"></script>
+    </body>
+</html>

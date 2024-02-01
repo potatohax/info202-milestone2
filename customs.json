@@ -1,0 +1,12 @@
+{
+    "elements": {
+        "navmenu": {}
+    },
+    "attributes": {
+        "@submit.prevent": {},
+        "v-for": {},
+        "vmodel": {},
+        "v-model": {},
+        "@click.prevent": {}
+    }
+}

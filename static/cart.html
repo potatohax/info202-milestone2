@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <title>View Products PAge</title>
+        <script src="js/external/vue.global.js"></script>
+        <script src="js/external/vuex.global.js"></script>
+        <script src="js/external/vuex-persistedstate.js"></script>
+        <script src="js/external/axios.js"></script>
+    </head>
+    <body>
+
+        <main>
+            <header>
+                <h1>View Cart</h1>
+            </header>
+            <navmenu></navmenu>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in items">
+                        <td>{{item.product.name}}</td>
+                        <td>{{formatCurrency(item.salePrice)}}</td>
+                        <td>{{formatNumber(item.quantityPurchased, 2)}}</td>
+                        <td>{{ formatCurrency(getItemTotal(item)) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Total Price</td>
+                        <td>{{getTotalPrice(items)}}</td>
+                        <td></td>
+                        <td>{{ formatCurrency(totalPrice) }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="center">
+                <button @click.prevent="checkOut()">Check Out Cart</button>
+            </div>
+        </main>
+        <script type="module" src="js/cart.js"></script>
+    </body>
+</html>

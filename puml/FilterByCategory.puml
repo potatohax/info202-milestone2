@@ -1,0 +1,77 @@
+@startuml
+' style tweaks to make the diagram a little more readable
+skinparam {
+	Style strictuml
+	RoundCorner 5
+	BoxPadding 35
+	ParticipantPadding 15
+    Padding 2
+
+	Sequence {
+		' make activations yellow too
+		LifeLineBackgroundColor #FDFDCD
+
+		' make stereotypes less ugly
+		Stereotype {
+			Font {
+				Size 11
+				Style plain
+			}
+		}
+	}
+
+   Database {
+		BorderColor #A80036
+	}
+
+}
+
+
+
+
+Actor Customer as user
+
+box "Web Browser" #White
+    participant "view-products" as page << HTML >>
+	participant "view-products" as vue << Vue >>
+    participant "axios" as axios << HTTP client >>
+
+end box
+
+box "Web Server" #White
+    participant "Server" as server << Jooby >>
+    participant "Product Module" as pmodule << Jooby >>
+    participant "ProductDAO" as pdao << DAO >>
+end box
+
+database "Database" as db << H2 >>
+
+user -> page++: Products displayed to customer
+page -> vue++: select "category" to filter 
+vue -> vue++: filterByCategory(category)
+vue -> axios++: get("/api/categories/{category}")
+axios -> server++: HTTP get /api/categories/{category}
+server -> pmodule++: get("/api/categories/{category}")
+pmodule -> pdao++: filterByCategory(category)
+pdao -> db++: select * from Product where Category = :category
+return result
+return products
+return products
+return JSON encoded products
+return JavaScript products
+vue--
+return template merged with products
+return display products \nby selected category
+
+
+@enduml
+
+
+/* customer selects category to filter 
+html click prevent filterByCategory(category)
+filterByCategory(category) run in view-products.js controller
+axios.get(category)
+
+
+
+*/

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <title>View Products PAge</title>
+        <script src="js/external/vue.global.js"></script>
+        <script src="js/external/vuex.global.js"></script>
+        <script src="js/external/vuex-persistedstate.js"></script>
+        <script src="js/external/axios.js"></script>
+    </head>
+    <body>
+
+        <main>
+            <header>
+                <h1>Browse our Products</h1>
+            </header>
+            <navmenu></navmenu>
+
+            <div id="categories" class="buttons"><button @click.prevent="getProducts()">All</button><button @click.prevent="filterByCategory(category)" v-for="category in categories">{{category}}</button></div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Buy</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr v-for="product in products">
+                        <td>{{product.name}}</td>
+                        <td>{{product.description}}</td>
+                        <td>{{ formatCurrency(product.listPrice) }}</td>
+                        <td>{{ formatNumber(product.quantityInStock, 2) }}</td>
+                        <td><form @submit.prevent="buyProduct(product)"><button>Buy</button></form></td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        <script type="module" src="js/view-products.js"></script>
+    </body>
+</html>

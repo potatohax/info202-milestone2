@@ -1,0 +1,174 @@
+body, html {
+    margin: 0;
+}
+
+.flex-container {
+    display: flex;
+    gap: 10px;
+    flex-basis: auto;
+}
+
+.flex-container > * {
+    flex-grow: 1;
+}
+
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.images {
+    align-items: center;
+    justify-content: center;
+    margin: 50px 25% 50px 25%;
+}
+
+.center {
+    text-align: center;
+}
+.product-img {
+    height: 550px;
+    width: 500px;
+}
+
+header {
+    padding: 80px;
+    text-align: center;
+    background-image: url("../images/watch-header.jpg");
+    background-repeat: no-repeat;
+    background-size: 1920px 1440px;
+    background-position: center;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+}
+.header img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.title {
+    text-align: center;
+    background-color: lightblue;
+    color: whitesmoke;
+}
+
+.sign-in-text {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 17px;
+}
+
+.navbar {
+    background-color: darkgrey;
+    text-align: center;
+}
+.navbar a {
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    padding: 14px 16px;
+    transition: transform 0.3s ease, color 0.3s;
+}
+
+.navbar a.active {
+    background-color: lightblue;
+}
+
+.navbar a:hover {
+    color: darkslategray;
+    background-color: lightblue;
+    transform: scale(1.05);
+}
+
+.buttons button {
+    text-decoration: none;
+    font-size: 14px;
+    background-color: lightgray;
+    transition: transform 0.3s ease, color 0.3s;
+}
+
+.buttons button:hover {
+    color: darkslategray;
+    background-color: white;
+    transform: scale(1.05);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    background-color: lightgray;
+    height: 60px;
+    width: 100%;
+    bottom: 0;
+    margin-top: 100px;
+}
+
+li {
+    text-align: center;
+    list-style-type: none;
+}
+
+
+
+/* forms */
+form {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-gap: 1em 0.5em;
+}
+
+label {
+    grid-column: 1 / 2;
+    text-align: right;
+}
+
+input, button, select, textarea {
+    grid-column: 2 / 3;
+}
+
+textarea {
+    height: 4em;
+    resize: vertical;
+}
+
+.sign-up-form {
+    padding-top: 50px;
+    margin: 20px 25% 50px 25%;
+}
+
+/* tables */
+table {
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 0px 0px;
+}
+
+td, th {
+    border: thin;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* centre the major buttons */
+#categories {
+    display: block;
+    text-align: center;
+}
+
+/* add some gaps between the major buttons */
+#categories button {
+    margin-left: 2pt;
+    margin-right: 2pt;
+}

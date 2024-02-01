@@ -1,0 +1,19 @@
+</header>
+<nav>
+    <div class= "navbar flex-container flex-row">
+        <a href="index.jsp">Home</a>
+        <a href="sign-in.jsp">Sign In</a>
+
+    </div>
+</nav>
+
+    <p>Welcome <%= customer.getUsername() %>!</p>
+</header>
+<nav>
+    <div class= "navbar flex-container flex-row">
+        <a href="index.jsp">Home</a>
+        <a href="view-products.jsp">Browse Products</a>
+        <a href="#!">View Cart</a>
+        <a href="SignOutServlet">Sign Out</a>
+    </div>
+</nav>

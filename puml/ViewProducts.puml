@@ -1,0 +1,63 @@
+@startuml
+' style tweaks to make the diagram a little more readable
+skinparam {
+	Style strictuml
+	RoundCorner 5
+	BoxPadding 35
+	ParticipantPadding 15
+    Padding 2
+
+	Sequence {
+		' make activations yellow too
+		LifeLineBackgroundColor #FDFDCD
+
+		' make stereotypes less ugly
+		Stereotype {
+			Font {
+				Size 11
+				Style plain
+			}
+		}
+	}
+
+   Database {
+		BorderColor #A80036
+	}
+
+}
+
+
+Actor Customer as user
+
+box "             Web Browser             " #white
+	Participant "view-products" as page << HTML >>
+	user -> page++: views page
+    participant "view-products.js" as controller <<Vue>>
+    participant "axios" as axios <<HTTP client >>
+end box
+
+box "Web Server" #white
+	Participant "Server" as service << Jooby >>
+	Participant "ProductModule" as module << Jooby >>
+	Participant "ProductDAO" as dao << DAO >>
+end box
+
+database "Database" as db
+
+page -> controller++ : « mounted »
+controller -> controller++ : getAllProducts()
+controller -> axios++ : get("/api/products")
+axios -> service++ : HTTP GET /api/products
+
+service -> module++ : get("/api/products")
+module -> dao++ : getProducts()
+dao -> db++ : select * from products
+return result
+return products
+return products
+return JSON encoded products
+return JavaScript products
+controller --
+return template merged with products
+return products displayed to user
+@enduml

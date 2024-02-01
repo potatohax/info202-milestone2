@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <title>View Products PAge</title>
+        <script src="js/external/vue.global.js"></script>
+        <script src="js/external/vuex.global.js"></script>
+        <script src="js/external/vuex-persistedstate.js"></script>
+        <script src="js/external/axios.js"></script>
+    </head>
+    <body>
+
+        <main>
+            <header>
+                <h1>Add to Cart</h1>
+            </header>
+            <navmenu></navmenu>
+
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Details</th>
+                        <th>Values</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>ID:</td>
+                        <td>{{product.productId}}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Name:</td>
+                        <td>{{product.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Description:</td>
+                        <td>{{product.description}}</td>
+                    </tr>
+                    <tr>
+                        <td>Price:</td>
+                        <td>{{formatCurrency(product.listPrice)}}</td>
+                    </tr>
+                    <tr>
+                        <td>Quantity available:</td>
+                        <td>{{formatNumber(product.quantityInStock, 2)}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <fieldset>
+                <legend>Quantity to buy</legend>
+                <form @submit.prevent="addToCart()">
+                    <label>How many?</label><input type="number" v-model="quantity" required />
+
+                    <button>Add to Cart</button>
+
+                </form>
+
+            </fieldset>
+        </main>
+        <script type="module" src="js/cart.js"></script>
+    </body>
+</html>
